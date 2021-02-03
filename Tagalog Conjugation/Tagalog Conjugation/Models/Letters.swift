@@ -23,9 +23,7 @@ class Letters {
     // MARK: - Functions
 
     func doesWordStartWithVowel(word: String) -> Bool {
-        guard let firstLetter = word.first?.lowercased() else {
-            return false
-        }
+        let firstLetter = word[0].lowercased() // Get the first letter
         
         // Check if the letter is a vowel
         if self.vowels.contains(String(firstLetter)) {
@@ -35,9 +33,7 @@ class Letters {
     }
     
     func doesWordStartWithL(word: String) -> Bool {
-        guard let firstLetter = word.first?.lowercased() else {
-            return false
-        }
+        let firstLetter = word[0].lowercased() // Get the first letter
         
         // Check if the letter is a vowel
         if firstLetter == "l" {
@@ -46,15 +42,59 @@ class Letters {
         return false
     }
     
-    func doesWordStartWithK(word: String) -> Bool {
-        guard let firstLetter = word.first?.lowercased() else {
-            return false
+    func doesWordStartWithD(word: String) -> Bool {
+        let firstLetter = word[0].lowercased() // Get the first letter
+        
+        // Check if the letter is a vowel
+        if firstLetter == "d" {
+            return true
         }
+        return false
+    }
+    
+    func doesWordStartWithK(word: String) -> Bool {
+        let firstLetter = word[0].lowercased() // Get the first letter
         
         // Check if the letter is a vowel
         if firstLetter == "k" {
             return true
         }
         return false
+    }
+    
+    func doesWordStartWithPB(word: String) -> Bool {
+        let firstLetter = word[0].lowercased() // Get the first letter
+        
+        // Check if the letter is a vowel
+        if firstLetter == "p" {
+            return true
+        } else if firstLetter == "b" {
+            return true
+        }
+        return false
+    }
+    
+    func doesWordStartWithDLST(word: String) -> Bool {
+        let firstLetter = word[0].lowercased() // Get the first letter
+        
+        // Check if the letter is a vowel
+        if firstLetter == "d" {
+            return true
+        } else if firstLetter == "l" {
+            return true
+        } else if firstLetter == "s" {
+            return true
+        } else if firstLetter == "t" {
+            return true
+        }
+        return false
+    }
+    
+}
+
+// Allow operations like: myString[2] to get the character 'S'
+extension String {
+    subscript(i: Int) -> String {
+        String(self[index(startIndex, offsetBy: i)])
     }
 }

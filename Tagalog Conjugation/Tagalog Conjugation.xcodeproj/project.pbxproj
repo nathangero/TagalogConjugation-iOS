@@ -28,6 +28,7 @@
 		15A7DC5325C520A7005168C0 /* i.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DC5225C520A7005168C0 /* i.swift */; };
 		15A7DC5625C520AD005168C0 /* in.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DC5525C520AD005168C0 /* in.swift */; };
 		15A7DC5925C520B5005168C0 /* an.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DC5825C520B5005168C0 /* an.swift */; };
+		15A7DCC825CA7192005168C0 /* magpa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DCC725CA7192005168C0 /* magpa.swift */; };
 		628D4EC80C1B468A420369C4 /* Pods_Tagalog_Conjugation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BEA73EE7B6C4E97BF525DD /* Pods_Tagalog_Conjugation.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		15A7DC5225C520A7005168C0 /* i.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i.swift; sourceTree = "<group>"; };
 		15A7DC5525C520AD005168C0 /* in.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = in.swift; sourceTree = "<group>"; };
 		15A7DC5825C520B5005168C0 /* an.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = an.swift; sourceTree = "<group>"; };
+		15A7DCC725CA7192005168C0 /* magpa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magpa.swift; sourceTree = "<group>"; };
 		5C107677A835224965D11320 /* Pods-Tagalog Conjugation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagalog Conjugation.debug.xcconfig"; path = "Target Support Files/Pods-Tagalog Conjugation/Pods-Tagalog Conjugation.debug.xcconfig"; sourceTree = "<group>"; };
 		72BEA73EE7B6C4E97BF525DD /* Pods_Tagalog_Conjugation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tagalog_Conjugation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4D7545807F6462610D77C8 /* Pods-Tagalog Conjugation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagalog Conjugation.release.xcconfig"; path = "Target Support Files/Pods-Tagalog Conjugation/Pods-Tagalog Conjugation.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +118,10 @@
 		1538208525C4F2590033B651 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				15A7DCC525CA7161005168C0 /* ActorCausitive */,
 				15A7DC1D25C4FACF005168C0 /* Actor Basic */,
 				15A7DC1E25C4FADF005168C0 /* Object Basic */,
+				15A7DCC625CA716E005168C0 /* ObjectCausitive */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +185,21 @@
 				15A7DC3D25C516B7005168C0 /* ObjectButtons.swift */,
 			);
 			path = Conjugations;
+			sourceTree = "<group>";
+		};
+		15A7DCC525CA7161005168C0 /* ActorCausitive */ = {
+			isa = PBXGroup;
+			children = (
+				15A7DCC725CA7192005168C0 /* magpa.swift */,
+			);
+			path = ActorCausitive;
+			sourceTree = "<group>";
+		};
+		15A7DCC625CA716E005168C0 /* ObjectCausitive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ObjectCausitive;
 			sourceTree = "<group>";
 		};
 		4208F9DA73E8B3117AE5F931 /* Frameworks */ = {
@@ -326,6 +345,7 @@
 				1538207125C4F1F90033B651 /* AppDelegate.swift in Sources */,
 				15A7DC2525C4FC5F005168C0 /* Letters.swift in Sources */,
 				15A7DC1B25C4FA97005168C0 /* mag.swift in Sources */,
+				15A7DCC825CA7192005168C0 /* magpa.swift in Sources */,
 				15A7DC5325C520A7005168C0 /* i.swift in Sources */,
 				15A7DC4F25C51A24005168C0 /* mang.swift in Sources */,
 				15A7DC4825C5198B005168C0 /* um.swift in Sources */,

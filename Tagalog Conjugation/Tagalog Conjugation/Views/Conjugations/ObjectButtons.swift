@@ -12,15 +12,49 @@ struct ObjectButtons: View {
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
     
+    // MARK: - View Components
+    
+    var iButton: some View {
+        Button(action: self.conjugateI) {
+            Text("i-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
+    
+    var inButton: some View {
+        Button(action: self.conjugateIn) {
+            Text("in-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
+    
+    var anButton: some View {
+        Button(action: self.conjugateAn) {
+            Text("-an")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
     
     // MARK: - Functions
     private func conjugateI() {
         if self.rootWord.isEmpty {
             self.conjugations = i.shared.showConjugationPattern()
+            
         } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
             self.conjugations = i.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
         } else if Letters.shared.doesWordStartWithL(word: self.rootWord) {
             self.conjugations = i.shared.conjugateL(word: self.rootWord.lowercased())
+            
         } else {
             self.conjugations = i.shared.conjugate(word: self.rootWord.lowercased())
         }
@@ -29,8 +63,10 @@ struct ObjectButtons: View {
     private func conjugateIn() {
         if self.rootWord.isEmpty {
             self.conjugations = In.shared.showConjugationPattern()
+            
         } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
             self.conjugations = In.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
         } else {
             self.conjugations = In.shared.conjugate(word: self.rootWord.lowercased())
         }
@@ -39,8 +75,10 @@ struct ObjectButtons: View {
     private func conjugateAn() {
         if self.rootWord.isEmpty {
             self.conjugations = an.shared.showConjugationPattern()
+            
         } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
             self.conjugations = an.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
         } else {
             self.conjugations = an.shared.conjugate(word: self.rootWord.lowercased())
         }
@@ -56,30 +94,9 @@ struct ObjectButtons: View {
             }
             
             HStack (spacing: 5) {
-                Button(action: self.conjugateI) {
-                    Text("i-")
-                        .foregroundColor(.white)
-                }
-                .frame(minWidth: 90, minHeight: 50)
-                .background(Colors.dodgerBlue())
-                .cornerRadius(10)
-                
-                
-                Button(action: self.conjugateIn) {
-                    Text("in-")
-                        .foregroundColor(.white)
-                }
-                .frame(minWidth: 90, minHeight: 50)
-                .background(Colors.dodgerBlue())
-                .cornerRadius(10)
-                
-                Button(action: self.conjugateAn) {
-                    Text("-an")
-                        .foregroundColor(.white)
-                }
-                .frame(minWidth: 90, minHeight: 50)
-                .background(Colors.dodgerBlue())
-                .cornerRadius(10)
+                self.iButton
+                self.inButton
+                self.anButton
             }
         }.frame(maxWidth: UIScreen.main.bounds.width - 30)
         
