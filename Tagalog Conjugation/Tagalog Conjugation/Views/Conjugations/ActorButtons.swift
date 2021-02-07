@@ -12,48 +12,6 @@ struct ActorButtons: View {
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
     
-    // MARK: - View Components
-    
-    var magButton: some View {
-        Button(action: self.conjugateMag) {
-            Text("mag-")
-                .foregroundColor(.white)
-        }
-        .frame(minWidth: 90, minHeight: 50)
-        .background(Colors.dodgerBlue())
-        .cornerRadius(10)
-    }
-    
-    var umButton: some View {
-        Button(action: self.conjugateUm) {
-            Text("-um-")
-                .foregroundColor(.white)
-        }
-        .frame(minWidth: 90, minHeight: 50)
-        .background(Colors.dodgerBlue())
-        .cornerRadius(10)
-    }
-    
-    var maButton: some View {
-        Button(action: self.conjugateMa) {
-            Text("ma-")
-                .foregroundColor(.white)
-        }
-        .frame(minWidth: 90, minHeight: 50)
-        .background(Colors.dodgerBlue())
-        .cornerRadius(10)
-    }
-    
-    var mangButton: some View {
-        Button(action: self.conjugateMang) {
-            Text("mang-")
-                .foregroundColor(.white)
-        }
-        .frame(minWidth: 90, minHeight: 50)
-        .background(Colors.dodgerBlue())
-        .cornerRadius(10)
-    }
-    
     // MARK: - Functions
     private func conjugateMag() {
         if self.rootWord.isEmpty {
@@ -110,6 +68,48 @@ struct ActorButtons: View {
         } else {
             self.conjugations = mang.shared.conjugate(word: self.rootWord.lowercased())
         }
+    }
+    
+    // MARK: - View Components
+    
+    var magButton: some View {
+        Button(action: self.conjugateMag) {
+            Text("mag-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
+    
+    var umButton: some View {
+        Button(action: self.conjugateUm) {
+            Text("-um-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
+    
+    var maButton: some View {
+        Button(action: self.conjugateMa) {
+            Text("ma-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
+    }
+    
+    var mangButton: some View {
+        Button(action: self.conjugateMang) {
+            Text("mang-")
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 90, minHeight: 50)
+        .background(Colors.dodgerBlue())
+        .cornerRadius(10)
     }
     
     // MARK: - UI

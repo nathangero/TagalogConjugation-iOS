@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151FC8E425CF841F001EE629 /* ipa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FC8E325CF841F001EE629 /* ipa.swift */; };
 		1538207125C4F1F90033B651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1538207025C4F1F90033B651 /* AppDelegate.swift */; };
 		1538207325C4F1F90033B651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1538207225C4F1F90033B651 /* SceneDelegate.swift */; };
 		1538207725C4F1FD0033B651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1538207625C4F1FD0033B651 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151FC8E325CF841F001EE629 /* ipa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipa.swift; sourceTree = "<group>"; };
 		1538206D25C4F1F90033B651 /* Tagalog Conjugation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tagalog Conjugation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1538207025C4F1F90033B651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1538207225C4F1F90033B651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		15A7DCC625CA716E005168C0 /* ObjectCausitive */ = {
 			isa = PBXGroup;
 			children = (
+				151FC8E325CF841F001EE629 /* ipa.swift */,
 			);
 			path = ObjectCausitive;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				15A7DC3E25C516B7005168C0 /* ObjectButtons.swift in Sources */,
 				15A7DC4B25C519DE005168C0 /* ma.swift in Sources */,
 				1538207125C4F1F90033B651 /* AppDelegate.swift in Sources */,
+				151FC8E425CF841F001EE629 /* ipa.swift in Sources */,
 				15A7DC2525C4FC5F005168C0 /* Letters.swift in Sources */,
 				15A7DC1B25C4FA97005168C0 /* mag.swift in Sources */,
 				15A7DCC825CA7192005168C0 /* magpa.swift in Sources */,

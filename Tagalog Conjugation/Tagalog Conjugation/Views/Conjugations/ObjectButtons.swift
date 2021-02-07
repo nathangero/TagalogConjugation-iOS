@@ -12,6 +12,61 @@ struct ObjectButtons: View {
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
     
+    // MARK: - Functions
+    private func conjugateI() {
+        if self.rootWord.isEmpty {
+            self.conjugations = i.shared.showConjugationPattern()
+            
+        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
+            self.conjugations = i.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
+        } else if Letters.shared.doesWordStartWithL(word: self.rootWord) {
+            self.conjugations = i.shared.conjugateL(word: self.rootWord.lowercased())
+            
+        } else {
+            self.conjugations = i.shared.conjugate(word: self.rootWord.lowercased())
+        }
+    }
+    
+    private func conjugateIn() {
+        if self.rootWord.isEmpty {
+            self.conjugations = In.shared.showConjugationPattern()
+            
+        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
+            self.conjugations = In.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
+        } else if Letters.shared.isWordNonGlottal(word: self.rootWord.lowercased()) {
+            self.conjugations = In.shared.conjugateNonGlottal(word: self.rootWord.lowercased())
+            
+        } else {
+            self.conjugations = In.shared.conjugate(word: self.rootWord.lowercased())
+        }
+    }
+    
+    private func conjugateAn() {
+        if self.rootWord.isEmpty {
+            self.conjugations = an.shared.showConjugationPattern()
+            
+        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
+            self.conjugations = an.shared.conjugateVowel(word: self.rootWord.lowercased())
+            
+        } else if Letters.shared.isWordNonGlottal(word: self.rootWord.lowercased()) {
+            self.conjugations = an.shared.conjugateNonGlottal(word: self.rootWord.lowercased())
+            
+        } else if Letters.shared.shouldRemoveLastVowel(word: self.rootWord.lowercased()) {
+            if Letters.shared.doesWordStartWithL(word: self.rootWord.lowercased()) {
+                self.conjugations = an.shared.conjugateL(word: self.rootWord.lowercased())
+                
+            } else {
+                self.conjugations = an.shared.conjugateRemoveLastVowel(word: self.rootWord.lowercased())
+                
+            }
+            
+        } else {
+            self.conjugations = an.shared.conjugate(word: self.rootWord.lowercased())
+        }
+    }
+    
     // MARK: - View Components
     
     var iButton: some View {
@@ -42,46 +97,6 @@ struct ObjectButtons: View {
         .frame(minWidth: 90, minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
-    }
-    
-    // MARK: - Functions
-    private func conjugateI() {
-        if self.rootWord.isEmpty {
-            self.conjugations = i.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = i.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else if Letters.shared.doesWordStartWithL(word: self.rootWord) {
-            self.conjugations = i.shared.conjugateL(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = i.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
-    
-    private func conjugateIn() {
-        if self.rootWord.isEmpty {
-            self.conjugations = In.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = In.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = In.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
-    
-    private func conjugateAn() {
-        if self.rootWord.isEmpty {
-            self.conjugations = an.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = an.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = an.shared.conjugate(word: self.rootWord.lowercased())
-        }
     }
     
     // MARK: - UI

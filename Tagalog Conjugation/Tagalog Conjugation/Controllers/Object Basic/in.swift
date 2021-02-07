@@ -64,6 +64,24 @@ class In {
         return verbs
     }
     
+    func conjugateNonGlottal(word: String) -> [VerbTenses : String] {
+        let allButLastVowelWordCount = word.count - 1
+        let allButLastVowel = word.prefix(allButLastVowelWordCount).description
+        let allButFirstLetter = word.suffix(word.count - 1).description
+        let firstSyllable = word.prefix(Letters.shared.consonantSyllable).description
+        let firstLetter = word[0]
+        let secondLetter = word[1]
+        
+        let verbs = [
+            VerbTenses.command : allButLastVowel + "hin",
+            VerbTenses.past : firstLetter + "in" + allButFirstLetter,
+            VerbTenses.present : firstLetter + "in" + secondLetter + allButFirstLetter,
+            VerbTenses.future : firstSyllable + allButLastVowel + "hin"
+        ]
+        
+        return verbs
+    }
+    
     func showConjugationPattern() -> [VerbTenses : String] {
         let word = "root"
         // Get the first letter/first syllable of the word

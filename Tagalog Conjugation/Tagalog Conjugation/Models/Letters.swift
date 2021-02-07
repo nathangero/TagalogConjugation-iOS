@@ -15,8 +15,8 @@ class Letters {
     let consonantSyllable = 2
     let vowelSyllable = 1
     let vowels = ["a", "e", "i", "o", "u"]
-    let removeLastVowelForAn = ["bigay", "lagay"]
-    let replaceLastLetterWithHin = ["bili", "dala"]
+    let removeLastVowelForAn = ["bigay", "lagay", "bukas"]
+    let nonGlottalStops = ["bili", "pili", "sabi", "dala"]
     
     init() {}
     
@@ -88,6 +88,37 @@ class Letters {
             return true
         }
         return false
+    }
+    
+    func isWordNonGlottal(word: String) -> Bool {
+        return self.nonGlottalStops.contains(word.lowercased())
+    }
+    
+    func shouldRemoveLastVowel(word: String) -> Bool {
+        return self.removeLastVowelForAn.contains(word.lowercased())
+    }
+    
+    
+    func removeLastVowelForAn(word: String) -> String {
+//        print("word:", word)
+        var reverse = String(word.reversed())
+//        print("revsered word:", reverse)
+        var vowelToRemove: Character = "a" // Default value since can't have an empty char variable
+        
+        for index in 0...reverse.count {
+            if self.vowels.contains(reverse[index]) {
+                vowelToRemove = Character(reverse[index])
+                break
+            }
+        }
+        
+        if let indexToRemove = reverse.firstIndex(of: vowelToRemove) {
+            reverse.remove(at: indexToRemove)
+        }
+        
+//        print("post edit:", reverse)
+        
+        return String(reverse.reversed())
     }
     
 }

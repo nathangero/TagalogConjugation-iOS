@@ -12,6 +12,27 @@ struct CausitiveButtons: View {
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
     
+    // MARK: - Functions
+    
+    private func conjugateMagpa() {
+        if self.rootWord.isEmpty {
+            self.conjugations = magpa.shared.showConjugationPattern()
+            
+        } else {
+            self.conjugations = magpa.shared.conjugate(word: self.rootWord.lowercased())
+        }
+    }
+    
+    private func conjugateIpa() {
+        if self.rootWord.isEmpty {
+            self.conjugations = ipa.shared.showConjugationPattern()
+            
+        } else {
+            self.conjugations = ipa.shared.conjugate(word: self.rootWord.lowercased())
+        }
+        
+    }
+    
     // MARK: - View Components
     
     var causitiveActorButtons: some View {
@@ -53,19 +74,13 @@ struct CausitiveButtons: View {
     }
     
     var ipaButton: some View {
-        Button(action: {}) {
+        Button(action: self.conjugateIpa) {
             Text("ipa-")
                 .foregroundColor(.white)
         }
         .frame(minWidth: 90, minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
-    }
-    
-    // MARK: - Functions
-    
-    private func conjugateMagpa() {
-        self.conjugations = magpa.shared.conjugate(word: self.rootWord.lowercased())
     }
     
     // MARK: - UI

@@ -1,26 +1,27 @@
 //
-//  magpa.swift
+//  ipa.swift
 //  Tagalog Conjugation
 //
-//  Created by Nathan Geronimo on 2/2/21.
+//  Created by Nathan Geronimo on 2/6/21.
 //
 
 import Foundation
 
-class magpa {
+class ipa {
     
-    static let shared = magpa()
+    static let shared = ipa()
         
+    // MARK: - Functions
     // MARK: - Functions
     func conjugate(word: String) -> [VerbTenses : String] {
         // Get the first two letters/first syllable of the word
         let firstSyllable = word.prefix(Letters.shared.consonantSyllable).description
         
         let verbs = [
-            VerbTenses.command : "magpa" + word,
-            VerbTenses.past : "nagpa" + word,
-            VerbTenses.present : "nagpa" + firstSyllable + word,
-            VerbTenses.future : "magpa" + firstSyllable + word
+            VerbTenses.command : "ipa" + word,
+            VerbTenses.past : "ipina" + word,
+            VerbTenses.present : "ipina" + firstSyllable + word,
+            VerbTenses.future : "ipa" + firstSyllable + word
         ]
         
         return verbs
@@ -32,10 +33,10 @@ class magpa {
         let firstSyllable = word.prefix(Letters.shared.consonantSyllable).description
         
         let verbs = [
-            VerbTenses.command : "\"magpa\" + \(word)",
-            VerbTenses.past : "\"nagpa\" + \(word)",
-            VerbTenses.present : "\"nagpa\" + \(firstSyllable) + \(word)",
-            VerbTenses.future : "\"magpa\" + \(firstSyllable) + \(word)"
+            VerbTenses.command : "\"ipa\" + \(word)",
+            VerbTenses.past : "\"ipina\" + \(word)",
+            VerbTenses.present : "\"ipina\" + \(firstSyllable) + \(word)",
+            VerbTenses.future : "\"ipa\" + \(firstSyllable) + \(word)"
         ]
         
         return verbs
