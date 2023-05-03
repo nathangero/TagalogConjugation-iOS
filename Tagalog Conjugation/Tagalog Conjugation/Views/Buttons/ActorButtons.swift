@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActorButtons: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var viewModel = ViewModel()
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
     
