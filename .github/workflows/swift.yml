@@ -16,8 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - working-directory: ./TagaloConjugation-iOS/Tagalog\ Conjugation
     - name: Build
+      working-directory: Tagalog_Conjugation
       run: swift build -v
     - name: Run tests
+      working-directory: Tagalog_Conjugation
       run: swift test -v
