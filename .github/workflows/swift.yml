@@ -15,13 +15,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Install CocoaPods dependencies
-      run: pod install
-      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+    - name: Update Git submodules
+      run: git submodule update --init --recursive
     - name: Build
-      run: swift build
-      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
+      run: swift build -v
     - name: Run tests
-      run: swift test
-      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
+      run: swift test -v
