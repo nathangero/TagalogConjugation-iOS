@@ -15,8 +15,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    - name: Install CocoaPods dependencies
+      run: pod install
+      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
     - name: Build
-      run: swift build -v
+      run: swift build
+      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
     - name: Run tests
-      run: swift test -v
+      run: swift test
+      working-directory: ./Users/nate/Documents/code/personal/TagalogConjugation-iOS/Tagalog Conjugation/Tagalog Conjugation.xcworkspace
