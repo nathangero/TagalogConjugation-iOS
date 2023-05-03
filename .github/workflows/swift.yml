@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+    - name: Update Git submodules
+      run: git submodule update --init --recursive
     - name: Build
       run: swift build -v
     - name: Run tests
