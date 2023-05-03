@@ -16,10 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        submodules: 'recursive'
-    - name: Update Git submodules
-      run: git submodule update --init --recursive
+    - working-directory: ./TagaloConjugation-iOS/Tagalog\ Conjugation
     - name: Build
       run: swift build -v
     - name: Run tests
