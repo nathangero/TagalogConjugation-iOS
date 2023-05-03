@@ -30,6 +30,7 @@
 		15A7DC5625C520AD005168C0 /* in.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DC5525C520AD005168C0 /* in.swift */; };
 		15A7DC5925C520B5005168C0 /* an.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DC5825C520B5005168C0 /* an.swift */; };
 		15A7DCC825CA7192005168C0 /* magpa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7DCC725CA7192005168C0 /* magpa.swift */; };
+		43B6350E2A0320C7004099E0 /* ActorButtonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6350D2A0320C7004099E0 /* ActorButtonsViewModel.swift */; };
 		628D4EC80C1B468A420369C4 /* Pods_Tagalog_Conjugation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BEA73EE7B6C4E97BF525DD /* Pods_Tagalog_Conjugation.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		15A7DC5525C520AD005168C0 /* in.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = in.swift; sourceTree = "<group>"; };
 		15A7DC5825C520B5005168C0 /* an.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = an.swift; sourceTree = "<group>"; };
 		15A7DCC725CA7192005168C0 /* magpa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magpa.swift; sourceTree = "<group>"; };
+		43B6350D2A0320C7004099E0 /* ActorButtonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorButtonsViewModel.swift; sourceTree = "<group>"; };
 		5C107677A835224965D11320 /* Pods-Tagalog Conjugation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagalog Conjugation.debug.xcconfig"; path = "Target Support Files/Pods-Tagalog Conjugation/Pods-Tagalog Conjugation.debug.xcconfig"; sourceTree = "<group>"; };
 		72BEA73EE7B6C4E97BF525DD /* Pods_Tagalog_Conjugation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tagalog_Conjugation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4D7545807F6462610D77C8 /* Pods-Tagalog Conjugation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tagalog Conjugation.release.xcconfig"; path = "Target Support Files/Pods-Tagalog Conjugation/Pods-Tagalog Conjugation.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,8 @@
 		1538206F25C4F1F90033B651 /* Tagalog Conjugation */ = {
 			isa = PBXGroup;
 			children = (
+				1538207025C4F1F90033B651 /* AppDelegate.swift */,
+				1538207225C4F1F90033B651 /* SceneDelegate.swift */,
 				1538208825C4F2720033B651 /* Misc. */,
 				1538208525C4F2590033B651 /* Controllers */,
 				1538208625C4F25E0033B651 /* Models */,
@@ -140,9 +144,10 @@
 		1538208725C4F2640033B651 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				15A7DC3225C5025F005168C0 /* Conjugations */,
+				15A7DC3625C50564005168C0 /* ConjugationResults.swift */,
 				15A7DC1625C4FA0C005168C0 /* HomeScreen.swift */,
 				1538208925C4F2B00033B651 /* SplashScreen.swift */,
+				15A7DC3225C5025F005168C0 /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,8 +155,6 @@
 		1538208825C4F2720033B651 /* Misc. */ = {
 			isa = PBXGroup;
 			children = (
-				1538207025C4F1F90033B651 /* AppDelegate.swift */,
-				1538207225C4F1F90033B651 /* SceneDelegate.swift */,
 				15A7DC2A25C5010C005168C0 /* Colors.swift */,
 			);
 			path = Misc.;
@@ -178,15 +181,15 @@
 			path = "Object Basic";
 			sourceTree = "<group>";
 		};
-		15A7DC3225C5025F005168C0 /* Conjugations */ = {
+		15A7DC3225C5025F005168C0 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				15A7DC2D25C5024A005168C0 /* ActorButtons.swift */,
+				43B6350D2A0320C7004099E0 /* ActorButtonsViewModel.swift */,
 				15A7DC4025C516DD005168C0 /* CausitiveButtons.swift */,
-				15A7DC3625C50564005168C0 /* ConjugationResults.swift */,
 				15A7DC3D25C516B7005168C0 /* ObjectButtons.swift */,
 			);
-			path = Conjugations;
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		15A7DCC525CA7161005168C0 /* ActorCausitive */ = {
@@ -343,6 +346,7 @@
 				15A7DC5925C520B5005168C0 /* an.swift in Sources */,
 				15A7DC2E25C5024A005168C0 /* ActorButtons.swift in Sources */,
 				1538208A25C4F2B00033B651 /* SplashScreen.swift in Sources */,
+				43B6350E2A0320C7004099E0 /* ActorButtonsViewModel.swift in Sources */,
 				15A7DC3E25C516B7005168C0 /* ObjectButtons.swift in Sources */,
 				15A7DC4B25C519DE005168C0 /* ma.swift in Sources */,
 				1538207125C4F1F90033B651 /* AppDelegate.swift in Sources */,
@@ -496,14 +500,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tagalog Conjugation/Preview Content\"";
 				DEVELOPMENT_TEAM = KABUJ4QU3F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Tagalog Conjugation/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Tagalog Conjugation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geronimo.tagalog.conjugation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -518,14 +527,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tagalog Conjugation/Preview Content\"";
 				DEVELOPMENT_TEAM = KABUJ4QU3F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Tagalog Conjugation/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Tagalog Conjugation";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geronimo.tagalog.conjugation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

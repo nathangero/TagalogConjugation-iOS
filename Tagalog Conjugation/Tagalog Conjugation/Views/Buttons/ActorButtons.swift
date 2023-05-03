@@ -9,8 +9,28 @@ import SwiftUI
 
 struct ActorButtons: View {
     
+    @StateObject var viewModel: ViewModel
     @Binding var rootWord: String
     @Binding var conjugations: [VerbTenses : String]
+    
+    // MARK: - BODY
+    var body: some View {
+        VStack (spacing: 5) {
+            HStack {
+                Text("Actor:")
+                    .font(.headline)
+                Spacer()
+            }
+            
+            HStack (spacing: 5) {
+                self.magButton
+                self.umButton
+                self.maButton
+                self.mangButton
+            }
+        }.frame(maxWidth: UIScreen.main.bounds.width - 30)
+    }
+    
     
     // MARK: - Functions
     private func conjugateMag() {
@@ -77,7 +97,7 @@ struct ActorButtons: View {
             Text("mag-")
                 .foregroundColor(.white)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
@@ -87,7 +107,7 @@ struct ActorButtons: View {
             Text("-um-")
                 .foregroundColor(.white)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
@@ -97,7 +117,7 @@ struct ActorButtons: View {
             Text("ma-")
                 .foregroundColor(.white)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
@@ -107,27 +127,9 @@ struct ActorButtons: View {
             Text("mang-")
                 .foregroundColor(.white)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
-    }
-    
-    // MARK: - UI
-    var body: some View {
-        VStack (spacing: 5) {
-            HStack {
-                Text("Actor:")
-                    .font(.headline)
-                Spacer()
-            }
-            
-            HStack (spacing: 5) {
-                self.magButton
-                self.umButton
-                self.maButton
-                self.mangButton
-            }
-        }.frame(maxWidth: UIScreen.main.bounds.width - 30)
     }
 }
 
