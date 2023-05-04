@@ -9,29 +9,21 @@ import SwiftUI
 
 struct CausitiveButtons: View {
     
-    @Binding var rootWord: String
-    @Binding var conjugations: [VerbTenses : String]
+    var conjugateMagpa: () -> Void
+    var conjugateIpa: () -> Void
     
-    // MARK: - Functions
     
-    private func conjugateMagpa() {
-        if self.rootWord.isEmpty {
-            self.conjugations = magpa.shared.showConjugationPattern()
+    // MARK: - BODY
+    var body: some View {
+        VStack {
+            self.causitiveActorButtons
             
-        } else {
-            self.conjugations = magpa.shared.conjugate(word: self.rootWord.lowercased())
+            Divider()
+            
+            self.causitiveObjectButtons
         }
     }
     
-    private func conjugateIpa() {
-        if self.rootWord.isEmpty {
-            self.conjugations = ipa.shared.showConjugationPattern()
-            
-        } else {
-            self.conjugations = ipa.shared.conjugate(word: self.rootWord.lowercased())
-        }
-        
-    }
     
     // MARK: - View Components
     
@@ -81,17 +73,6 @@ struct CausitiveButtons: View {
         .frame(minWidth: 90, minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
-    }
-    
-    // MARK: - UI
-    var body: some View {
-        VStack {
-            self.causitiveActorButtons
-            
-            Divider()
-            
-            self.causitiveObjectButtons
-        }
     }
 }
 

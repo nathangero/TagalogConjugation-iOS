@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ActorButtons: View {
     
-    @StateObject var viewModel = ViewModel()
-    @Binding var rootWord: String
-    @Binding var conjugations: [VerbTenses : String]
+    var conjugateMag: () -> Void
+    var conjugateUm: () -> Void
+    var conjugateMa: () -> Void
+    var conjugateMang: () -> Void
     
     // MARK: - BODY
     var body: some View {
@@ -31,64 +32,6 @@ struct ActorButtons: View {
         }.frame(maxWidth: UIScreen.main.bounds.width - 30)
     }
     
-    
-    // MARK: - Functions
-    private func conjugateMag() {
-        if self.rootWord.isEmpty {
-            self.conjugations = mag.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = mag.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = mag.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
-    
-    private func conjugateUm() {
-        if self.rootWord.isEmpty {
-            self.conjugations = um.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = um.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = um.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
-    
-    private func conjugateMa() {
-        if self.rootWord.isEmpty {
-            self.conjugations = ma.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = ma.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = ma.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
-    
-    private func conjugateMang() {
-        if self.rootWord.isEmpty {
-            self.conjugations = mang.shared.showConjugationPattern()
-            
-        } else if Letters.shared.doesWordStartWithVowel(word: self.rootWord) {
-            self.conjugations = mang.shared.conjugateVowel(word: self.rootWord.lowercased())
-            
-        } else if Letters.shared.doesWordStartWithDLST(word: self.rootWord.lowercased()) {
-            self.conjugations = mang.shared.conjugateDLST(word: self.rootWord.lowercased())
-            
-        } else if Letters.shared.doesWordStartWithPB(word: self.rootWord.lowercased()) {
-            self.conjugations = mang.shared.conjugatePB(word: self.rootWord.lowercased())
-            
-        } else if Letters.shared.doesWordStartWithK(word: self.rootWord.lowercased()) {
-            self.conjugations = mang.shared.conjugateK(word: self.rootWord.lowercased())
-            
-        } else {
-            self.conjugations = mang.shared.conjugate(word: self.rootWord.lowercased())
-        }
-    }
     
     // MARK: - View Components
     
@@ -133,8 +76,8 @@ struct ActorButtons: View {
     }
 }
 
-//struct ActorButtons_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActorButtons()
-//    }
-//}
+struct ActorButtons_Previews: PreviewProvider {
+    static var previews: some View {
+        ActorButtons(conjugateMag: {}, conjugateUm: {}, conjugateMa: {}, conjugateMang: {})
+    }
+}

@@ -10,9 +10,8 @@ import SwiftUI
 struct HomeScreen: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @State var rootWord = ""
-    @State var conjugations: [VerbTenses : String] = [:]
     
+    @StateObject var viewModel = ViewModel()
     
     // MARK: - BODY
     
@@ -26,24 +25,36 @@ struct HomeScreen: View {
             Text("Type in a word to conjugate")
                 .font(.title)
             
-            self.rootWordText
+            rootWordText
             
             Divider()
             
-            ConjugationResults(conjugations: self.$conjugations)
+            ConjugationResults(conjugations: $viewModel.conjugations)
             
             Divider()
             
             ScrollView {
-                ActorButtons(rootWord: self.$rootWord, conjugations: self.$conjugations)
+                ActorButtons(
+                    conjugateMag: { viewModel.conjugateMag() },
+                    conjugateUm: { viewModel.conjugateUm() },
+                    conjugateMa: { viewModel.conjugateMa() },
+                    conjugateMang: { viewModel.conjugateMang() }
+                )
                 
                 Divider()
                 
-                ObjectButtons(rootWord: self.$rootWord, conjugations: self.$conjugations)
+                ObjectButtons(
+                    conjugateI: { viewModel.conjugateI() },
+                    conjugateIn: { viewModel.conjugateIn() },
+                    conjugateAn: { viewModel.conjugateAn() }
+                )
                 
                 Divider()
                 
-                CausitiveButtons(rootWord: self.$rootWord, conjugations: self.$conjugations)
+                CausitiveButtons(
+                    conjugateMagpa: { viewModel.conjugateMagpa() },
+                    conjugateIpa: { viewModel.conjugateIpa() }
+                )
             }
             
             
@@ -59,7 +70,7 @@ struct HomeScreen: View {
         UITextField.appearance().clearButtonMode = .whileEditing // Allows clear button to be used with text field
         
         return ZStack {
-            TextField("root word", text: self.$rootWord)
+            TextField("root word", text: $viewModel.rootWord)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .multilineTextAlignment(.center)
@@ -67,14 +78,11 @@ struct HomeScreen: View {
                 .frame(maxWidth: UIScreen.main.bounds.width - 150, minHeight: 50)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(self.colorScheme == .dark ? Color.white : Color.black, lineWidth: 1.5)
+                        .stroke(colorScheme == .dark ? Color.white : Color.black, lineWidth: 1.5)
                         .frame(maxWidth: UIScreen.main.bounds.width - 150, minHeight: 50)
                 )
         }
     }
-    
-    
-    
     
 }
 
