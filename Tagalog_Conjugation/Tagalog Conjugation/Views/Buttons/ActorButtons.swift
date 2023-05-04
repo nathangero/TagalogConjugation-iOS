@@ -23,7 +23,7 @@ struct ActorButtons: View {
                 Spacer()
             }
             
-            HStack (spacing: 5) {
+            HStack (spacing: 10) {
                 self.magButton
                 self.umButton
                 self.maButton
@@ -39,6 +39,7 @@ struct ActorButtons: View {
         Button(action: self.conjugateMag) {
             Text("mag-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
         .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
@@ -49,6 +50,7 @@ struct ActorButtons: View {
         Button(action: self.conjugateUm) {
             Text("-um-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
         .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
@@ -59,6 +61,7 @@ struct ActorButtons: View {
         Button(action: self.conjugateMa) {
             Text("ma-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
         .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
@@ -69,6 +72,7 @@ struct ActorButtons: View {
         Button(action: self.conjugateMang) {
             Text("mang-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
         .frame(minHeight: 50)
         .background(Colors.dodgerBlue())

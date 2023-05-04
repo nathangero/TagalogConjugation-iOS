@@ -76,8 +76,8 @@ struct CausitiveButtons: View {
     }
 }
 
-//struct CausitiveButtons_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CausitiveButtons()
-//    }
-//}
+struct CausitiveButtons_Previews: PreviewProvider {
+    static var previews: some View {
+        CausitiveButtons(conjugateMagpa: {}, conjugateIpa: {})
+    }
+}

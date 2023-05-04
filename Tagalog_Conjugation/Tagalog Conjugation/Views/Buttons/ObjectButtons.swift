@@ -23,7 +23,7 @@ struct ObjectButtons: View {
                 Spacer()
             }
             
-            HStack (spacing: 5) {
+            HStack (spacing: 15) {
                 self.iButton
                 self.inButton
                 self.anButton
@@ -39,8 +39,9 @@ struct ObjectButtons: View {
         Button(action: self.conjugateI) {
             Text("i-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
@@ -49,8 +50,9 @@ struct ObjectButtons: View {
         Button(action: self.conjugateIn) {
             Text("in-")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
@@ -59,15 +61,16 @@ struct ObjectButtons: View {
         Button(action: self.conjugateAn) {
             Text("-an")
                 .foregroundColor(.white)
+                .padding(.horizontal)
         }
-        .frame(minWidth: 90, minHeight: 50)
+        .frame(minHeight: 50)
         .background(Colors.dodgerBlue())
         .cornerRadius(10)
     }
 }
 
-//struct ObjectButtons_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ObjectButtons()
-//    }
-//}
+struct ObjectButtons_Previews: PreviewProvider {
+    static var previews: some View {
+        ObjectButtons(conjugateI: {}, conjugateIn: {}, conjugateAn: {})
+    }
+}
